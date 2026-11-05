@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensores de Luz e Radiação Solar</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f2f6fa;
+    color: #243247;
+    line-height: 1.7;
+}
+
+header {
+    background: linear-gradient(135deg, #102b50, #1675a8);
+    color: white;
+    text-align: center;
+    padding: 65px 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+header p {
+    font-size: 18px;
+    max-width: 750px;
+    margin: auto;
+}
+
+nav {
+    background: #102b50;
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #ffd166;
+}
+
+section {
+    max-width: 1050px;
+    margin: 35px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #00000010;
+}
+
+h2 {
+    color: #12618d;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #f0bd43;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #164b70;
+    margin: 18px 0 8px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #edf6fb;
+    padding: 22px;
+    border-radius: 10px;
+    border-left: 5px solid #1683b5;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.highlight {
+    background: #fff5d9;
+    border-left: 5px solid #e5ad24;
+    padding: 18px;
+    margin: 20px 0;
+    border-radius: 6px;
+}
+
+button {
+    background: #12618d;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+button:hover {
+    background: #0b4569;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 15px 0;
+    accent-color: #1683b5;
+}
+
+.resultado {
+    background: #e5f5e9;
+    padding: 18px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+footer {
+    background: #102b50;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+@media(max-width: 600px) {
+    header h1 {
+        font-size: 27px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    section {
+        margin: 18px 10px;
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Sensores de Luz e Radiação Solar</h1>
+    <p>
+        Estudo da radiação eletromagnética, funcionamento dos
+        sensores e análise da melhor posição para coletores solares.
+    </p>
+</header>
+
+<nav>
+    <a href="#introducao">Introdução</a>
+    <a href="#sensores">Sensores</a>
+    <a href="#comparacao">Comparação</a>
+    <a href="#coletor">Coletor Solar</a>
+    <a href="#limitacoes">Limitações</a>
+</nav>
+
+<section id="introducao">
+    <h2>1. Radiação Eletromagnética</h2>
+
+    <p>
+        A radiação eletromagnética é uma forma de energia que
+        se propaga pelo espaço por meio de ondas eletromagnéticas.
+        A luz solar é um exemplo dessa radiação.
+    </p>
+
+    <p>
+        A energia emitida pelo Sol chega à Terra principalmente
+        nas faixas do ultravioleta, luz visível e infravermelho.
+        Essa energia é fundamental para processos naturais e
+        para a geração de eletricidade por painéis solares.
+    </p>
+
+    <div class="highlight">
+        <strong>Você sabia?</strong>
+        A intensidade da radiação solar varia conforme o horário,
+        as condições climáticas, a estação do ano e a posição
+        em que a superfície recebe a luz.
+    </div>
+</section>
+
+<section id="sensores">
+    <h2>2. Como funcionam os sensores de luz?</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>LDR</h3>
+            <p>
+                O LDR (Light Dependent Resistor) é um resistor
+                cuja resistência elétrica varia conforme a
+                quantidade de luz recebida.
+            </p>
+            <p>
+                Quanto maior a iluminação, menor tende a ser
+                sua resistência elétrica.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Fotodiodo</h3>
+            <p>
+                O fotodiodo é um componente semicondutor que
+                transforma a luz recebida em corrente elétrica.
+            </p>
+            <p>
+                Geralmente, quanto maior a luz incidente,
+                maior será a corrente produzida.
+            </p>
+        </div>
+
+    </div>
+
+    <h3>Comparação entre os sensores</h3>
+
+    <p>
+        O LDR é simples e barato, sendo útil para detectar
+        variações de iluminação. Já o fotodiodo apresenta
+        resposta mais rápida e pode ser utilizado em
+        medições mais precisas, dependendo do circuito.
+    </p>
+</section>
+
+<section id="comparacao">
+    <h2>3. Comparação da intensidade luminosa</h2>
+
+    <p>
+        Para comparar a intensidade da luz em diferentes
+        posições, podemos instalar sensores em locais distintos
+        e observar suas leituras nas mesmas condições.
+    </p>
+
+    <p>
+        Por exemplo, podemos posicionar sensores em três locais:
+        posição A, posição B e posição C.
+    </p>
+
+    <h3>Simulador de intensidade luminosa</h3>
+
+    <label>Posição A:</label>
+    <input type="range" id="a" min="0" max="1000" value="300">
+
+    <label>Posição B:</label>
+    <input type="range" id="b" min="0" max="1000" value="600">
+
+    <label>Posição C:</label>
+    <input type="range" id="c" min="0" max="1000" value="450">
+
+    <div id="resultado" class="resultado">
+        Ajuste os controles para comparar as posições.
+    </div>
+
+    <button onclick="comparar()">Comparar sensores</button>
+
+</section>
+
+<section id="coletor">
+    <h2>4. Como identificar o melhor posicionamento de um coletor solar?</h2>
+
+    <p>
+        Sim! É possível identificar a posição mais favorável
+        para um coletor solar utilizando sensores de luz.
+    </p>
+
+    <p>
+        Para isso, podemos realizar medições em diferentes
+        inclinações e orientações, mantendo as condições
+        de comparação o mais semelhantes possível.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Orientação</h3>
+            <p>
+                A direção para a qual o coletor está voltado
+                influencia a quantidade de radiação recebida.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Inclinação</h3>
+            <p>
+                O ângulo do coletor em relação ao solo altera
+                a incidência da radiação solar sobre sua superfície.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Horário</h3>
+            <p>
+                A posição aparente do Sol muda ao longo do dia,
+                modificando a incidência dos raios solares.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="highlight">
+        <strong>Conclusão:</strong>
+        A melhor posição é aquela que proporciona maior
+        aproveitamento da radiação solar ao longo do período
+        analisado, considerando também a eficiência do coletor.
+    </div>
+</section>
+
+<section id="limitacoes">
+    <h2>5. Limitações dos sensores</h2>
+
+    <p>
+        Apesar de úteis, os sensores LDR e fotodiodos possuem
+        limitações quando utilizados para medir a energia solar.
+    </p>
+
+    <ul>
+        <li>O LDR não apresenta uma resposta perfeitamente linear.</li>
+        <li>A temperatura pode alterar as medições.</li>
+        <li>Os sensores podem apresentar diferenças de calibração.</li>
+        <li>A poeira e a umidade podem interferir nas leituras.</li>
+        <li>A resposta espectral pode não representar todo o espectro solar.</li>
+        <li>A intensidade luminosa não é a mesma coisa que a irradiância solar.</li>
+    </ul>
+
+    <h3>Intensidade luminosa x Irradiância solar</h3>
+
+    <p>
+        A iluminância é medida em lux e representa a luz
+        considerando a sensibilidade do olho humano.
+    </p>
+
+    <p>
+        Já a irradiância solar é medida em watts por metro
+        quadrado (W/m²) e representa a potência da radiação
+        que chega a uma determinada área.
+    </p>
+
+    <div class="highlight">
+        Para medir a energia solar com maior precisão,
+        o instrumento mais indicado é um piranômetro calibrado,
+        que mede a irradiância solar em W/m².
+    </div>
+</section>
+
+<section>
+    <h2>6. Conclusão</h2>
+
+    <p>
+        Os sensores de luz são ferramentas importantes para
+        acompanhar as variações da radiação solar e estudar
+        o aproveitamento da energia do Sol.
+    </p>
+
+    <p>
+        O LDR e o fotodiodo permitem observar diferenças na
+        iluminação em diferentes posições. Entretanto, para
+        determinar com precisão a energia solar disponível,
+        é necessário utilizar equipamentos apropriados e
+        considerar fatores ambientais e de calibração.
+    </p>
+</section>
+
+<footer>
+    <p>Projeto Educacional | Física e Tecnologia</p>
+    <p>Sensores de Luz e Acompanhamento da Radiação Solar</p>
+</footer>
+
+<script>
+function comparar() {
+    let a = Number(document.getElementById("a").value);
+    let b = Number(document.getElementById("b").value);
+    let c = Number(document.getElementById("c").value);
+
+    let valores = [
+        {nome: "Posição A", valor: a},
+        {nome: "Posição B", valor: b},
+        {nome: "Posição C", valor: c}
+    ];
+
+    valores.sort((x, y) => y.valor - x.valor);
+
+    document.getElementById("resultado").innerHTML =
+        "Posição A: " + a + "<br>" +
+        "Posição B: " + b + "<br>" +
+        "Posição C: " + c + "<br><br>" +
+        "Maior leitura: " + valores[0].nome +
+        " (" + valores[0].valor + ")";
+}
+</script>
+
+</body>
+</html>
