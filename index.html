@@ -10,38 +10,472 @@
 </head>
 <body>
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
-  <header class="topbar"><div class="wrap navrow">
-    <a class="brand" href="#inicio" aria-label="Sol em Foco, início"><span class="brandmark" aria-hidden="true">☀</span><span>Sol em Foco</span></a>
-    <button class="toolbtn menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navlinks">☰ <span class="sr-only">Abrir menu</span></button>
-    <nav class="navlinks" id="navlinks" aria-label="Navegação principal"><a href="#conexao">Piscina do CEP</a><a href="#sensores">Sensores</a><a href="#simulador">Simulador</a><a href="#experimento">Experimento</a><a href="#acessibilidade">Acessibilidade</a></nav>
-    <div class="tools" aria-label="Opções de leitura"><button class="toolbtn" id="contrastBtn" aria-pressed="false">◐ Contraste</button><button class="toolbtn" id="dyslexiaBtn" aria-pressed="false">Aa Leitura</button></div>
-  </div></header>
+
+  <header class="topbar">
+    <div class="wrap navrow">
+      <a class="brand" href="#inicio" aria-label="Sol em Foco, início">
+        <span class="brandmark" aria-hidden="true">☀</span>
+        <span>Sol em Foco</span>
+      </a>
+
+      <button class="toolbtn menu-toggle" id="menuToggle"
+        aria-expanded="false" aria-controls="navlinks">
+        ☰ <span class="sr-only">Abrir menu</span>
+      </button>
+
+      <nav class="navlinks" id="navlinks" aria-label="Navegação principal">
+        <a href="#conexao">Piscina do CEP</a>
+        <a href="#sensores">Sensores</a>
+        <a href="#simulador">Simulador</a>
+        <a href="#experimento">Experimento</a>
+      </nav>
+
+      <div class="tools" aria-label="Opções de leitura">
+        <button class="toolbtn" id="contrastBtn" aria-pressed="false">
+          ◐ Contraste
+        </button>
+        <button class="toolbtn" id="dyslexiaBtn" aria-pressed="false">
+          Aa Leitura
+        </button>
+      </div>
+    </div>
+  </header>
+
   <main id="conteudo">
-    <section class="hero" id="inicio"><div class="wrap hero-grid"><div class="eyebrow">Projeto Integrador CEP · 3º trimestre</div><h1>O Sol tem um lugar certo.</h1><p>Como a luz muda de posição ao longo do dia? Vamos usar sensores para comparar a radiação solar e investigar onde um coletor pode receber mais energia para ajudar a aquecer a piscina do CEP.</p><a class="button primary" href="#simulador">Explorar simulador ↓</a><a class="button" href="#experimento">Ver roteiro do experimento</a></div><div class="sunray" aria-hidden="true">☀ · · ·</div></section>
-    <section id="conexao"><div class="wrap"><div class="section-head"><div class="kicker">Ciência ligada à escola</div><h2>Da luz do Sol à água da piscina</h2><p>Este estudo complementa o projeto de aquecimento sustentável da piscina do CEP. Antes de decidir onde instalar coletores solares, podemos comparar quanta luz chega a diferentes posições e inclinações.</p></div><div class="pool-callout"><div class="pool-illustration" role="img" aria-label="Ilustração de uma piscina sob a luz do Sol"></div><div><h3>Uma pergunta prática</h3><p>Em qual ponto do espaço disponível um coletor ficaria menos sombreado e receberia mais radiação durante o período de uso? Sensores simples ajudam a comparar condições. Para estimar energia térmica real, também precisamos considerar área, temperatura, circulação de água e eficiência do coletor.</p><a href="https://feercelc.github.io/SITE---Projeto-Integrador/" target="_blank" rel="noopener noreferrer">Conheça o site do projeto da piscina ↗</a></div></div></div></section>
-    <section id="sensores" style="background:#e7f5ef"><div class="wrap"><div class="section-head"><div class="kicker">Tecnociência + robótica</div><h2>Do fóton à leitura</h2><p>A radiação eletromagnética transporta energia. Quando a luz alcança um componente sensível, sua resposta elétrica pode ser lida por um circuito e comparada pelo microcontrolador.</p></div><div class="grid two sensor-compare">
-      <article class="card"><span class="tag">Resistência variável</span><div class="mini-diagram" aria-hidden="true"><span>☀ ⇢</span><span class="ldr"></span><span>⇢ Arduino</span></div><h3>LDR: a resistência muda</h3><p>LDR significa resistor dependente de luz. Em muitos LDRs comuns, a resistência diminui quando a iluminação aumenta. Em um divisor de tensão, essa mudança vira uma tensão que a entrada analógica consegue ler.</p><span class="formula">mais luz → menor resistência (LDR típico) → muda a tensão lida</span><p>É barato e ótimo para observar variações relativas. A resposta costuma ser lenta e depende do componente, do circuito e do espectro da luz.</p></article>
-      <article class="card"><span class="tag">Corrente elétrica</span><div class="mini-diagram" aria-hidden="true"><span>☀ ⇢</span><span class="diode"></span><span>⇢ Arduino</span></div><h3>Fotodiodo: a luz gera corrente</h3><p>Fótons absorvidos no semicondutor podem gerar portadores de carga e uma fotocorrente. Com polarização e circuito adequados, essa corrente pode ser convertida em tensão e medida.</p><span class="formula">luz absorvida → fotocorrente → circuito de leitura</span><p>Fotodiodos podem responder rápido e de forma previsível, mas sua sensibilidade depende do comprimento de onda e do circuito usado.</p></article>
-    </div><div class="note"><strong>Importante:</strong> leitura de LDR ou fotodiodo sem calibração indica comparação de luminosidade, não mede diretamente energia solar em W/m². Para irradiância confiável são necessários instrumento apropriado, calibração e posicionamento correto.</div></div></section>
-    <section id="simulador"><div class="wrap"><div class="section-head"><div class="kicker">Explore e compare</div><h2>Simulador de posição solar</h2><p>Ajuste o horário e a inclinação das superfícies. O modelo didático mostra uma tendência geométrica simplificada para entender por que a orientação importa. Os valores são ilustrativos, não são medição do CEP nem previsão meteorológica.</p></div>
-      <div class="simulator"><div class="sim-grid"><div class="control"><h3>Escolha as condições</h3><label for="timeRange">Horário simulado: <output class="output" id="timeOut" for="timeRange">12:00</output></label><input type="range" id="timeRange" min="8" max="16" value="12" step="1" aria-describedby="timeHelp"><p id="timeHelp">Use as setas do teclado para mudar a hora.</p><label for="tiltRange">Inclinação dos coletores: <output class="output" id="tiltOut" for="tiltRange">30°</output></label><input type="range" id="tiltRange" min="0" max="60" value="30" step="5" aria-describedby="tiltHelp"><p id="tiltHelp">0° é horizontal; 60° é mais inclinado.</p><div class="bars" aria-label="Comparação estimada de luz recebida"><div class="barrow"><span>Horizontal</span><div class="track"><div class="fill" id="barA"></div></div><span id="valA">—</span></div><div class="barrow"><span>Inclinado</span><div class="track"><div class="fill" id="barB"></div></div><span id="valB">—</span></div></div><div class="result" id="simResult" aria-live="polite">Ajuste os controles para comparar as superfícies.</div></div>
-        <div class="scene" role="img" aria-label="Ilustração de dois coletores solares recebendo luz em ângulos diferentes"><div class="scene-sun" id="sunIcon" aria-hidden="true">☀</div><div class="ray" id="ray"></div><div class="horizon"></div><div class="collectors"><div class="collector"><span>horizontal</span></div><div class="collector" id="tiltedPanel"><span>inclinado</span></div></div><div class="reading" id="readout">Comparação ilustrativa</div></div></div>
-        <svg class="chart" viewBox="0 0 600 210" role="img" aria-labelledby="chartTitle chartDesc"><title id="chartTitle">Curva didática da luz solar ao longo do dia</title><desc id="chartDesc">A intensidade relativa estimada aumenta pela manhã, chega ao máximo ao meio-dia e diminui à tarde. A curva muda conforme os controles do simulador.</desc><line x1="48" y1="170" x2="570" y2="170" stroke="currentColor" opacity=".25"/><line x1="48" y1="25" x2="48" y2="170" stroke="currentColor" opacity=".25"/><path id="chartArea" d="M48 170 Q300 30 570 170 L570 170 L48 170Z" fill="#ffc857" opacity=".38"/><path id="chartLine" d="M48 170 Q300 30 570 170" fill="none" stroke="#087f8c" stroke-width="4"/><circle id="chartDot" cx="309" cy="30" r="7" fill="#ef7856"/><text x="42" y="195">08h</text><text x="286" y="195">12h</text><text x="545" y="195">16h</text><text x="5" y="22">relativa</text></svg>
-      </div><div class="note"><strong>Como interpretar:</strong> a lei do cosseno sugere que uma superfície recebe mais radiação direta quando seus raios chegam mais perto da perpendicular. Nuvens, sombras, luz difusa, reflexos, latitude, estação do ano e geometria local podem mudar o resultado real. Uma campanha de campo deve comparar medições simultâneas.</div>
-    </div></section>
-    <section id="experimento" style="background:#fff8e3"><div class="wrap"><div class="section-head"><div class="kicker">Mão na massa</div><h2>Experimento: onde bate mais Sol?</h2><p>Um protocolo simples para testar a hipótese com LDRs. Façam as medições com supervisão e sem olhar diretamente para o Sol.</p></div><div class="field"><h2>Roteiro de campo</h2><p>Materiais: dois LDRs iguais, dois divisores de tensão com resistores iguais, Arduino ou outro microcontrolador, fios, suportes e caderno de registro.</p><ol class="checklist"><li>Monte os dois circuitos iguais e confira as ligações.</li><li>Coloque sensores lado a lado sob a mesma luz e compare leituras.</li><li>Gire um sensor para representar a inclinação do coletor.</li><li>Registre simultaneamente as leituras a cada 30 minutos.</li><li>Repita em dias diferentes e anote nuvens e sombras.</li><li>Troque os sensores de posição para detectar diferenças entre componentes.</li></ol></div>
-      <div class="grid two" style="margin-top:1rem"><article class="card"><h3>Registro sugerido</h3><div class="table-wrap"><table><thead><tr><th scope="col">Hora</th><th scope="col">Condição</th><th scope="col">LDR A (ADC)</th><th scope="col">LDR B (ADC)</th><th scope="col">Observações</th></tr></thead><tbody><tr><td>08:00</td><td>☁/☀</td><td>—</td><td>—</td><td>Sombra? Inclinação?</td></tr><tr><td>10:00</td><td>☁/☀</td><td>—</td><td>—</td><td>Temperatura do sensor</td></tr><tr><td>12:00</td><td>☁/☀</td><td>—</td><td>—</td><td>Reflexos próximos?</td></tr><tr><td>14:00</td><td>☁/☀</td><td>—</td><td>—</td><td>Repetir a leitura</td></tr></tbody></table></div></article><article class="card"><h3>O que manter igual?</h3><p>Mesmo horário, distância entre sensores, circuito, tempo de estabilização e orientação dos cabos. Evitem sombras do corpo e reflexos de janelas ou água.</p><h3 style="margin-top:1rem">Perguntas para discutir</h3><ul><li>Qual posição teve maior leitura e em que horário?</li><li>A conclusão se manteve quando o céu ficou nublado?</li><li>Como separar mudança de luz de diferença entre LDRs?</li><li>O ponto mais iluminado também é o melhor para instalar o coletor?</li></ul></article></div>
-      <div class="note"><strong>Segurança:</strong> não subam em telhados ou estruturas da escola. Instalem e retirem os sensores ao nível do solo ou em suportes seguros, com autorização e acompanhamento de um adulto responsável.</div>
-    </div></section>
-    <section id="limites"><div class="wrap"><div class="section-head"><div class="kicker">Medir com cuidado</div><h2>Luz visível não é toda a energia do Sol</h2><p>Um sensor de luminosidade barato é útil para explorar padrões, mas não substitui um medidor calibrado de irradiância.</p></div><div class="grid three"><article class="card"><div class="icon" aria-hidden="true">🌈</div><h3>Resposta espectral</h3><p>LDRs e fotodiodos não respondem igualmente a todos os comprimentos de onda. A composição da luz e o tipo de sensor afetam a leitura.</p></article><article class="card"><div class="icon" aria-hidden="true">🌤️</div><h3>Luz difusa e sombras</h3><p>Nuvens, prédios e árvores alteram a parcela direta e difusa. Um sensor pontual pode não representar toda a área do coletor.</p></article><article class="card"><div class="icon" aria-hidden="true">🧰</div><h3>Calibração e montagem</h3><p>Resistor, tensão de alimentação, temperatura, sujeira, ângulo e envelhecimento influenciam a leitura. Repetir e calibrar melhora a comparação.</p></article></div><div class="card" style="margin-top:1rem"><h3>Para avaliar energia solar de verdade</h3><p>Um piranômetro ou célula de referência adequada, calibrados e instalados no mesmo plano do coletor, permitem medir irradiância com unidades como W/m². Para estudar aquecimento da água, registrem também temperaturas de entrada e saída, vazão e área do coletor.</p></div></div></section>
-    <section id="automacao" style="background:#e7f5ef"><div class="wrap"><div class="section-head"><div class="kicker">Programação + robótica</div><h2>Uma regra para a automação</h2><p>Leituras podem alimentar uma decisão simples. Em um projeto real, o controle deve considerar segurança hidráulica e temperatura, além da luz.</p></div><div class="grid two"><article class="card"><h3>Lógica em linguagem simples</h3><p>Se a água estiver abaixo da temperatura-alvo <em>e</em> houver luz suficiente no plano do coletor, acione a bomba de circulação. Caso contrário, mantenha-a desligada e registre as condições.</p><span class="formula">se (T_água &lt; alvo) E (luz &gt; limite) → circular água</span><p>O limite deve ser definido por testes. Uma leitura de LDR não deve ser tratada como garantia de calor disponível.</p></article><article class="card"><h3>Fluxo de dados</h3><p>☀ Radiação → LDR/fotodiodo → divisor ou amplificador → entrada analógica → programa → indicador ou atuador</p><p>Para uma demonstração escolar, uma barra LED pode representar as leituras. Qualquer ligação a uma bomba real exige projeto elétrico e supervisão qualificada.</p></article></div></div></section>
-    <section id="acessibilidade"><div class="wrap"><div class="section-head"><div class="kicker">Acesso para todo mundo</div><h2>A ciência precisa chegar a todos</h2><p>Este protótipo inclui navegação por teclado, estrutura semântica, controles nomeados, alternativas textuais e ajustes de leitura.</p></div><div class="grid two"><article class="card"><h3>Recursos disponíveis</h3><ul><li>Use Tab e Shift+Tab para navegar; Enter ativa links e botões.</li><li>Botão “Contraste” alterna alto contraste.</li><li>Botão “Leitura” ativa uma fonte simples com espaçamento ampliado.</li><li>O simulador anuncia resultados atualizados a leitores de tela.</li><li>Gráficos têm títulos e descrições; cores não são a única forma de comparar.</li></ul></article><article class="card"><h3>Libras: preparação</h3><p>O vídeo em Libras pode ser incluído em cada tópico quando produzido pela equipe. A área abaixo reserva espaço para incorporar vídeos e suas legendas/transcrições.</p><div class="video-slot"><strong>Vídeo em Libras — sensores de luz</strong><br>Área reservada para vídeo com interpretação em Libras. Adicionar também legenda e transcrição em português.</div><p style="margin-top:.8rem"><strong>VLibras:</strong> widget abaixo habilitado quando houver conexão com o serviço externo.</p></article></div></div></section>
-    <section id="mapa" style="padding-top:0"><div class="wrap"><div class="card"><h2>Mapa do site</h2><nav class="site-map" aria-label="Mapa do site"><a href="#inicio">Início</a><a href="#conexao">Conexão com a piscina</a><a href="#sensores">Como os sensores funcionam</a><a href="#simulador">Simulador</a><a href="#experimento">Experimento</a><a href="#limites">Limitações</a><a href="#automacao">Automação</a><a href="#acessibilidade">Acessibilidade</a><a href="#fontes">Fontes</a></nav></div></div></section>
-    <section id="fontes" style="padding-top:0"><div class="wrap"><div class="section-head"><div class="kicker">Para continuar estudando</div><h2>Fontes e referências</h2></div><div class="card"><ul><li><a href="https://www.nist.gov/programs-projects/spectral-responsivity-measurements-and-spatial-spectral-power-responsivity" target="_blank" rel="noopener noreferrer">NIST — responsividade espectral de fotodetectores</a>: explica como a resposta da fotodiodo depende do comprimento de onda.</li><li><a href="https://docs.nrel.gov/docs/fy24osti/88300.pdf" target="_blank" rel="noopener noreferrer">NREL — Best Practices Handbook for the Collection and Use of Solar Resource Data</a>: referência sobre dados de recurso solar e irradiância no plano do coletor.</li><li><a href="https://www.se.com.sa/-/media/sec/Sustainability/Solar-PV/ProceduresandGuides/6-SEC--Inspection-and-Testing-Guidelinesv2Clean.ashx" target="_blank" rel="noopener noreferrer">Saudi Electricity Company — inspeção e medição de irradiância</a>: sensores adequados incluem piranômetros, células de referência e fotodiodos; a orientação da medição importa.</li><li><a href="https://pvpmc.sandia.gov/modeling-guide/1-weather-design-inputs/plane-of-array-poa-irradiance/calculating-poa-irradiance/angle-of-incidence-clone-2/" target="_blank" rel="noopener noreferrer">Sandia PVPMC — ângulo de incidência</a>: geometria entre a direção solar e a superfície.</li><li><a href="https://feercelc.github.io/SITE---Projeto-Integrador/" target="_blank" rel="noopener noreferrer">Projeto Integrador CEP — Aquecimento Sustentável da Piscina</a>: referência do projeto ao qual este estudo se conecta.</li></ul><p>O simulador desta página é um modelo didático simplificado, construído para aprendizagem. Não substitui levantamento técnico do local nem orientação profissional.</p></div></div></section>
+
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div class="eyebrow">Projeto Integrador CEP · 3º trimestre</div>
+        <h1>O Sol tem um lugar certo.</h1>
+        <p>
+          Como a luz muda de posição ao longo do dia? Vamos usar sensores
+          para comparar a radiação solar e investigar onde um coletor pode
+          receber mais energia para ajudar a aquecer a piscina do CEP.
+        </p>
+        <a class="button primary" href="#simulador">Explorar simulador ↓</a>
+        <a class="button" href="#experimento">Ver roteiro do experimento</a>
+      </div>
+      <div class="sunray" aria-hidden="true">☀ · · ·</div>
+    </section>
+
+    <section id="conexao">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Ciência ligada à escola</div>
+          <h2>Da luz do Sol à água da piscina</h2>
+          <p>
+            Este estudo complementa o projeto de aquecimento sustentável
+            da piscina do CEP. Antes de decidir onde instalar coletores
+            solares, podemos comparar quanta luz chega a diferentes
+            posições e inclinações.
+          </p>
+        </div>
+
+        <div class="pool-callout">
+          <div class="pool-illustration" role="img"
+            aria-label="Ilustração de uma piscina sob a luz do Sol"></div>
+          <div>
+            <h3>Uma pergunta prática</h3>
+            <p>
+              Em qual ponto do espaço disponível um coletor ficaria menos
+              sombreado e receberia mais radiação durante o período de uso?
+              Sensores simples ajudam a comparar condições. Para estimar
+              energia térmica real, também precisamos considerar área,
+              temperatura, circulação de água e eficiência do coletor.
+            </p>
+            <a href="https://feercelc.github.io/SITE---Projeto-Integrador/"
+              target="_blank" rel="noopener noreferrer">
+              Conheça o site do projeto da piscina ↗️
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sensores" style="background:#e7f5ef">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Tecnociência + robótica</div>
+          <h2>Do fóton à leitura</h2>
+          <p>
+            A radiação eletromagnética transporta energia. Quando a luz
+            alcança um componente sensível, sua resposta elétrica pode
+            ser lida por um circuito e comparada pelo microcontrolador.
+          </p>
+        </div>
+
+        <div class="grid two sensor-compare">
+          <article class="card">
+            <span class="tag">Resistência variável</span>
+            <div class="mini-diagram" aria-hidden="true">
+              <span>☀ ⇢</span>
+              <span class="ldr"></span>
+              <span>⇢ Arduino</span>
+            </div>
+            <h3>LDR: a resistência muda</h3>
+            <p>
+              LDR significa resistor dependente de luz. Em muitos LDRs
+              comuns, a resistência diminui quando a iluminação aumenta.
+              Em um divisor de tensão, essa mudança vira uma tensão que
+              a entrada analógica consegue ler.
+            </p>
+            <span class="formula">
+              mais luz → menor resistência (LDR típico) → muda a tensão lida
+            </span>
+            <p>
+              É barato e ótimo para observar variações relativas.
+              A resposta costuma ser lenta e depende do componente,
+              do circuito e do espectro da luz.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="tag">Corrente elétrica</span>
+            <div class="mini-diagram" aria-hidden="true">
+              <span>☀ ⇢</span>
+              <span class="diode"></span>
+              <span>⇢ Arduino</span>
+            </div>
+            <h3>Fotodiodo: a luz gera corrente</h3>
+            <p>
+              Fótons absorvidos no semicondutor podem gerar portadores
+              de carga e uma fotocorrente. Com polarização e circuito
+              adequados, essa corrente pode ser convertida em tensão
+              e medida.
+            </p>
+            <span class="formula">
+              luz absorvida → fotocorrente → circuito de leitura
+            </span>
+            <p>
+              Fotodiodos podem responder rápido e de forma previsível,
+              mas sua sensibilidade depende do comprimento de onda
+              e do circuito usado.
+            </p>
+          </article>
+        </div>
+
+        <div class="note">
+          <strong>Importante:</strong> leitura de LDR ou fotodiodo sem
+          calibração indica comparação de luminosidade, não mede
+          diretamente energia solar em W/m². Para irradiância confiável
+          são necessários instrumento apropriado, calibração e
+          posicionamento correto.
+        </div>
+      </div>
+    </section>
+
+    <section id="simulador">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Explore e compare</div>
+          <h2>Simulador de posição solar</h2>
+          <p>
+            Ajuste o horário e a inclinação das superfícies. O modelo
+            didático mostra uma tendência geométrica simplificada para
+            entender por que a orientação importa. Os valores são
+            ilustrativos, não são medição do CEP nem previsão meteorológica.
+          </p>
+        </div>
+
+        <div class="simulator">
+          <div class="sim-grid">
+            <div class="control">
+              <h3>Escolha as condições</h3>
+
+              <label for="timeRange">
+                Horário simulado:
+                <output class="output" id="timeOut" for="timeRange">12:00</output>
+              </label>
+              <input type="range" id="timeRange" min="8" max="16"
+                value="12" step="1" aria-describedby="timeHelp">
+              <p id="timeHelp">Use as setas do teclado para mudar a hora.</p>
+
+              <label for="tiltRange">
+                Inclinação dos coletores:
+                <output class="output" id="tiltOut" for="tiltRange">30°</output>
+              </label>
+              <input type="range" id="tiltRange" min="0" max="60"
+                value="30" step="5" aria-describedby="tiltHelp">
+              <p id="tiltHelp">0° é horizontal; 60° é mais inclinado.</p>
+
+              <div class="bars" aria-label="Comparação estimada de luz recebida">
+                <div class="barrow">
+                  <span>Horizontal</span>
+                  <div class="track"><div class="fill" id="barA"></div></div>
+                  <span id="valA">—</span>
+                </div>
+                <div class="barrow">
+                  <span>Inclinado</span>
+                  <div class="track"><div class="fill" id="barB"></div></div>
+                  <span id="valB">—</span>
+                </div>
+              </div>
+
+              <div class="result" id="simResult" aria-live="polite">
+                Ajuste os controles para comparar as superfícies.
+              </div>
+            </div>
+
+            <div class="scene" role="img"
+              aria-label="Ilustração de dois coletores solares recebendo luz em ângulos diferentes">
+              <div class="scene-sun" id="sunIcon" aria-hidden="true">☀</div>
+              <div class="ray" id="ray"></div>
+              <div class="horizon"></div>
+              <div class="collectors">
+                <div class="collector"><span>horizontal</span></div>
+                <div class="collector" id="tiltedPanel"><span>inclinado</span></div>
+              </div>
+              <div class="reading" id="readout">Comparação ilustrativa</div>
+            </div>
+          </div>
+
+          <svg class="chart" viewBox="0 0 600 210" role="img"
+            aria-labelledby="chartTitle chartDesc">
+            <title id="chartTitle">Curva didática da luz solar ao longo do dia</title>
+            <desc id="chartDesc">
+              A intensidade relativa estimada aumenta pela manhã,
+              chega ao máximo ao meio-dia e diminui à tarde.
+              A curva muda conforme os controles do simulador.
+            </desc>
+            <line x1="48" y1="170" x2="570" y2="170"
+              stroke="currentColor" opacity=".25"/>
+            <line x1="48" y1="25" x2="48" y2="170"
+              stroke="currentColor" opacity=".25"/>
+            <path id="chartArea"
+              d="M48 170 Q300 30 570 170 L570 170 L48 170Z"
+              fill="#ffc857" opacity=".38"/>
+            <path id="chartLine" d="M48 170 Q300 30 570 170"
+              fill="none" stroke="#087f8c" stroke-width="4"/>
+            <circle id="chartDot" cx="309" cy="30" r="7" fill="#ef7856"/>
+            <text x="42" y="195">08h</text>
+            <text x="286" y="195">12h</text>
+            <text x="545" y="195">16h</text>
+            <text x="5" y="22">relativa</text>
+          </svg>
+        </div>
+
+        <div class="note">
+          <strong>Como interpretar:</strong> a lei do cosseno sugere que
+          uma superfície recebe mais radiação direta quando seus raios
+          chegam mais perto da perpendicular. Nuvens, sombras, luz difusa,
+          reflexos, latitude, estação do ano e geometria local podem mudar
+          o resultado real. Uma campanha de campo deve comparar medições
+          simultâneas.
+        </div>
+      </div>
+    </section>
+
+    <section id="experimento" style="background:#fff8e3">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Mão na massa</div>
+          <h2>Experimento: onde bate mais Sol?</h2>
+          <p>
+            Um protocolo simples para testar a hipótese com LDRs.
+            Façam as medições com supervisão e sem olhar diretamente
+            para o Sol.
+          </p>
+        </div>
+
+        <div class="field">
+          <h2>Roteiro de campo</h2>
+          <p>
+            Materiais: dois LDRs iguais, dois divisores de tensão com
+            resistores iguais, Arduino ou outro microcontrolador,
+            fios, suportes e caderno de registro.
+          </p>
+          <ol class="checklist">
+            <li>Monte os dois circuitos iguais e confira as ligações.</li>
+            <li>Coloque sensores lado a lado sob a mesma luz e compare leituras.</li>
+            <li>Gire um sensor para representar a inclinação do coletor.</li>
+            <li>Registre simultaneamente as leituras a cada 30 minutos.</li>
+            <li>Repita em dias diferentes e anote nuvens e sombras.</li>
+            <li>Troque os sensores de posição para detectar diferenças entre componentes.</li>
+          </ol>
+        </div>
+
+        <div class="grid two" style="margin-top:1rem">
+          <article class="card">
+            <h3>Registro sugerido</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Condição</th>
+                    <th scope="col">LDR A (ADC)</th>
+                    <th scope="col">LDR B (ADC)</th>
+                    <th scope="col">Observações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>08:00</td><td>☁/☀</td><td>—</td><td>—</td><td>Sombra? Inclinação?</td></tr>
+                  <tr><td>10:00</td><td>☁/☀</td><td>—</td><td>—</td><td>Temperatura do sensor</td></tr>
+                  <tr><td>12:00</td><td>☁/☀</td><td>—</td><td>—</td><td>Reflexos próximos?</td></tr>
+                  <tr><td>14:00</td><td>☁/☀</td><td>—</td><td>—</td><td>Repetir a leitura</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>O que manter igual?</h3>
+            <p>
+              Mesmo horário, distância entre sensores, circuito,
+              tempo de estabilização e orientação dos cabos.
+              Evitem sombras do corpo e reflexos de janelas ou água.
+            </p>
+            <h3 style="margin-top:1rem">Perguntas para discutir</h3>
+            <ul>
+              <li>Qual posição teve maior leitura e em que horário?</li>
+              <li>A conclusão se manteve quando o céu ficou nublado?</li>
+              <li>Como separar mudança de luz de diferença entre LDRs?</li>
+              <li>O ponto mais iluminado também é o melhor para instalar o coletor?</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="note">
+          <strong>Segurança:</strong> não subam em telhados ou estruturas
+          da escola. Instalem e retirem os sensores ao nível do solo ou
+          em suportes seguros, com autorização e acompanhamento de um
+          adulto responsável.
+        </div>
+      </div>
+    </section>
+
+    <section id="limites">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Medir com cuidado</div>
+          <h2>Luz visível não é toda a energia do Sol</h2>
+          <p>
+            Um sensor de luminosidade barato é útil para explorar padrões,
+            mas não substitui um medidor calibrado de irradiância.
+          </p>
+        </div>
+
+        <div class="grid three">
+          <article class="card">
+            <div class="icon" aria-hidden="true">🌈</div>
+            <h3>Resposta espectral</h3>
+            <p>
+              LDRs e fotodiodos não respondem igualmente a todos os
+              comprimentos de onda. A composição da luz e o tipo de
+              sensor afetam a leitura.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">🌤️</div>
+            <h3>Luz difusa e sombras</h3>
+            <p>
+              Nuvens, prédios e árvores alteram a parcela direta e difusa.
+              Um sensor pontual pode não representar toda a área do coletor.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">🧰</div>
+            <h3>Calibração e montagem</h3>
+            <p>
+              Resistor, tensão de alimentação, temperatura, sujeira,
+              ângulo e envelhecimento influenciam a leitura.
+              Repetir e calibrar melhora a comparação.
+            </p>
+          </article>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+          <h3>Para avaliar energia solar de verdade</h3>
+          <p>
+            Um piranômetro ou célula de referência adequada, calibrados
+            e instalados no mesmo plano do coletor, permitem medir
+            irradiância com unidades como W/m². Para estudar aquecimento
+            da água, registrem também temperaturas de entrada e saída,
+            vazão e área do coletor.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="automacao" style="background:#e7f5ef">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Programação + robótica</div>
+          <h2>Uma regra para a automação</h2>
+          <p>
+            Leituras podem alimentar uma decisão simples. Em um projeto
+            real, o controle deve considerar segurança hidráulica e
+            temperatura, além da luz.
+          </p>
+        </div>
+
+        <div class="grid two">
+          <article class="card">
+            <h3>Lógica em linguagem simples</h3>
+            <p>
+              Se a água estiver abaixo da temperatura-alvo e houver
+              luz suficiente no plano do coletor, acione a bomba de
+              circulação. Caso contrário, mantenha-a desligada e
+              registre as condições.
+            </p>
+            <span class="formula">
+              se (T_água &lt; alvo) E (luz &gt; limite) → circular água
+            </span>
+            <p>
+              O limite deve ser definido por testes. Uma leitura de
+              LDR não deve ser tratada como garantia de calor disponível.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Fluxo de dados</h3>
+            <p>
+              ☀ Radiação → LDR/fotodiodo → divisor ou amplificador →
+              entrada analógica → programa → indicador ou atuador
+            </p>
+            <p>
+              Para uma demonstração escolar, uma barra LED pode
+              representar as leituras. Qualquer ligação a uma bomba
+              real exige projeto elétrico e supervisão qualificada.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
   </main>
-  <footer><div class="wrap"><strong>Sol em Foco · Projeto Integrador CEP</strong><p>Sensores de luz, radiação solar e coletores térmicos — programação, tecnociência e robótica a serviço da aprendizagem e da sustentabilidade.</p><div class="site-map"><a href="#inicio">Voltar ao início ↑</a><a href="#mapa">Mapa do site</a></div><small>Protótipo educacional. Verifique medições experimentais antes de tomar decisões sobre instalação.</small></div></footer>
-  <div vw class="enabled"><div vw-access-button class="active" aria-label="Abrir recursos VLibras"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
+
+  <footer>
+    <div class="wrap">
+      <strong>Sol em Foco · Projeto Integrador CEP</strong>
+      <p>
+        Sensores de luz, radiação solar e coletores térmicos —
+        programação, tecnociência e robótica a serviço da aprendizagem
+        e da sustentabilidade.
+      </p>
+      <div class="site-map">
+        <a href="#inicio">Voltar ao início ↑</a>
+      </div>
+      <small>
+        Protótipo educacional. Verifique medições experimentais antes
+        de tomar decisões sobre instalação.
+      </small>
+    </div>
+  </footer>
+
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"
+      aria-label="Abrir recursos VLibras"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js" defer></script>
   <script src="script.js" defer></script>
+
 </body>
 </html>
